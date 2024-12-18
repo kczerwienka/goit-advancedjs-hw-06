@@ -20,4 +20,6 @@ const page2 = {
   status: 'close',
 }
 
+type newPage = typeof page1 & typeof page2;
+
 export {};

@@ -14,8 +14,35 @@ type User = {
   password: string;
 }
 
-function createOrUpdateUser(initialValues: User) {
-  // Оновлення користувача
+// Simulating a "database" with a user object
+let currentUser: User = {
+  name: 'John',
+  surname: 'Doe',
+  email: 'john.doe@example.com',
+  password: 'password123',
+};
+
+// Use Partial<User> to make all fields optional
+function createOrUpdateUser(initialValues: Partial<User>) {
+  // User updating logic
+  if (initialValues.name) {
+    currentUser.name = initialValues.name;
+  }
+  
+  if (initialValues.surname) {
+    currentUser.surname = initialValues.surname;
+  }
+  
+  if (initialValues.email) {
+    currentUser.email = initialValues.email;
+  }
+  
+  if (initialValues.password) {
+    currentUser.password = initialValues.password;
+  }
+
+  // Output the updated user for demonstration
+  console.log('Updated user:', currentUser);
 }
 
 createOrUpdateUser({ email: 'user@mail.com', password: 'password123' });
